@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriVision AI | On-Device Tomato Disease Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- TensorFlow JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0"></script>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+        <div class="logo">
+            🍅 AgriVision AI
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#detect">Detect</a></li>
+            <li><a href="#about">About AI</a></li>
+            <li><a href="#features">Features</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-left">
+
+            <h1>
+                Tomato Disease Detection
+                <span>Using On-Device AI</span>
+            </h1>
+
+            <p>
+
+                AgriVision AI uses a Convolutional Neural Network trained
+                completely from scratch to detect tomato leaf diseases.
+
+                The AI model runs directly inside your browser using
+                TensorFlow.js, ensuring privacy, speed and offline inference.
+
+            </p>
+
+            <button onclick="document.getElementById('detect').scrollIntoView()">
+                Detect Disease
+            </button>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="assets/tomato.png" alt="Tomato">
+
+        </div>
+
+    </section>
+
+    <!-- ================= UPLOAD SECTION ================= -->
+
+    <section id="detect">
+
+        <h2>Upload Tomato Leaf</h2>
+
+        <div class="upload-card">
+
+            <input
+                type="file"
+                id="imageUpload"
+                accept="image/*">
+
+            <img
+                id="previewImage"
+                src=""
+                alt="Preview">
+
+            <button id="predictBtn">
+
+                Analyze Leaf
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= RESULT ================= -->
+
+    <section id="result">
+
+        <h2>Prediction Result</h2>
+
+        <div class="result-card">
+
+            <h3 id="prediction">
+
+                Waiting for Prediction...
+
+            </h3>
+
+            <h4>
+
+                Confidence
+
+            </h4>
+
+            <div class="progress">
+
+                <div
+                    id="confidenceBar"
+                    class="progress-fill">
+
+                </div>
+
+            </div>
+
+            <p id="confidenceText">
+
+                0 %
+
+            </p>
+
+            <hr>
+
+            <h3>
+
+                Top Predictions
+
+            </h3>
+
+            <ul id="topPredictions">
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- ================= DISEASE INFO ================= -->
+
+    <section id="diseaseInfo">
+
+        <h2>Disease Information</h2>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>Description</h3>
+
+                <p id="description">
+
+                    Upload an image to view disease description.
+
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Treatment</h3>
+
+                <p id="treatment">
+
+                    Treatment recommendation will appear here.
+
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Prevention</h3>
+
+                <p id="prevention">
+
+                    Prevention tips will appear here.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MODEL INFO ================= -->
+
+    <section id="about">
+
+        <h2>About the AI Model</h2>
+
+        <div class="model-grid">
+
+            <div class="model-box">
+
+                <h3>Model</h3>
+
+                <p>CNN From Scratch</p>
+
+            </div>
+
+            <div class="model-box">
+
+                <h3>Dataset</h3>
+
+                <p>PlantVillage Tomato Dataset</p>
+
+            </div>
+
+            <div class="model-box">
+
+                <h3>Accuracy</h3>
+
+                <p>93.88%</p>
+
+            </div>
+
+            <div class="model-box">
+
+                <h3>Inference</h3>
+
+                <p>TensorFlow.js</p>
+
+            </div>
+
+            <div class="model-box">
+
+                <h3>Runs</h3>
+
+                <p>Completely On Device</p>
+
+            </div>
+
+            <div class="model-box">
+
+                <h3>Transfer Learning</h3>
+
+                <p>No</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+    <section id="features">
+
+        <h2>Project Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                🌿 Offline AI
+            </div>
+
+            <div class="feature">
+                🔒 Privacy Friendly
+            </div>
+
+            <div class="feature">
+                ⚡ Fast Prediction
+            </div>
+
+            <div class="feature">
+                🧠 CNN Built From Scratch
+            </div>
+
+            <div class="feature">
+                🌍 Browser Based AI
+            </div>
+
+            <div class="feature">
+                📱 Responsive Design
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h2>AgriVision AI</h2>
+
+        <p>
+
+            Built for OSDHack 2026
+
+        </p>
+
+        <p>
+
+            On-Device AI | Open Source
+
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
